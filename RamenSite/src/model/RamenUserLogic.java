@@ -1,21 +1,14 @@
 package model;
 
 public class RamenUserLogic {
-//	public void execute(Ramen ramen) {
-//		String gender = ramen.getGender();
-//		String gen = "";
-//		if(gender.equals("0")) {
-//			gen = "男性";
-//		} else if(gender.equals("1")) {
-//			gen = "女性";
-//		}
-//
-//		ramen.setGender(gen);
-//	}
+	public void execute(Ramen ramen) {
+		String gender = ramen.getGender();
+		if(gender.equals("0")) {
+			ramen.setGender("男性");
+		} else if(gender.equals("1")) {
+			ramen.setGender("女性");
+		}
 
-	public boolean execute(Ramen ramen) {
-		return true;
 	}
-
 
 }
