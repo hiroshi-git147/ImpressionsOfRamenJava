@@ -19,31 +19,31 @@
 					氏名<span class="comment">※</span>：
 				</dt>
 				<dd>
-					<input type="text" id="name" name="name" size="20"
+					<input type="text" name="name" size="20"
 						maxlength="20" placeholder="全角10文字まで" required>
 				</dd>
 				<dt>性別：</dt>
 				<dd>
-
-					<label><input type="radio" id="gender_0" name="gender"
-						value="1" checked>男性</label> <label><input type="radio"
-						id="gender_1" name="gender" value="2">女性</label>
+					<label>
+						<input type = "radio" name = "gender" value = "0" checked>男性
+						<input type = "radio" name = "gender" value = "1">女性
+					</label>
 				</dd>
 
 				<dt>年齢：</dt>
 				<dd>
 					<select name="age">
-						<option>10代</option>
-						<option>20代</option>
-						<option>30代</option>
-						<option>40代</option>
+						 <% for(int i = 18; i <= 65; i++) { %>
+							<option><%= i %></option>
+						<% } %>
 					</select>歳
 				</dd>
+
 
 				<dt>郵便番号：</dt>
 				<dd>
 					〒 <input type="number" id="zip1" name="zip1" max="999"
-						placeholder="３桁"> <input type="number" id="zip2"
+						placeholder="３桁"> - <input type="number" id="zip2"
 						name="zip2" max="9999" placeholder="４桁">
 				</dd>
 
@@ -59,10 +59,11 @@
 				<dt>一番好きなラーメン：</dt>
 				<dd>
 					<select id="favorite" name="favorite">
-						<option value="醤油ラーメン">醤油ラーメン</option>
-						<option value="豚骨ラーメン">豚骨ラーメン</option>
-						<option value="塩ラーメン">塩ラーメン</option>
-						<option value="味噌ラーメン">味噌ラーメン</option>
+						<% String[] str = {"醤油ラーメン", "豚骨ラーメン", "塩ラーメン", "味噌ラーメン"}; %>
+						<% for(int i = 0; i < str.length; i++) { %>
+							<option><%= str[i] %></option>
+						<% } %>
+
 					</select>
 				</dd>
 
