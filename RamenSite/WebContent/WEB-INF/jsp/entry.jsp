@@ -8,7 +8,7 @@
 </head>
 <body>
 <p>登録完了しました</p>
-	<a href = "/RamenSite/RamenServlet">戻る</a>
+	<a href = "/RamenSite/RamenUser">戻る</a>
 
 </body>
 </html>
