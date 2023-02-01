@@ -33,9 +33,6 @@ public class RamenUser extends HttpServlet {
 			forwardPath = "/WEB-INF/jsp/index.jsp";
 		} else if(action.equals("done")) {
 			HttpSession s = request.getSession();
-			Ramen ramenUser = (Ramen) s.getAttribute("ramenUser");
-			RamenUserLogic logic = new RamenUserLogic();
-			logic.execute(ramenUser);
 			s.removeAttribute("ramenUser");
 
 			forwardPath = "/WEB-INF/jsp/entry.jsp";
@@ -81,6 +78,9 @@ public class RamenUser extends HttpServlet {
 
 		ramenUser.setToppings(topping);
 
+
+		RamenUserLogic logic = new RamenUserLogic();
+		logic.execute(ramenUser);
 
 		HttpSession s = request.getSession();
 		s.setAttribute("ramenUser", ramenUser);
