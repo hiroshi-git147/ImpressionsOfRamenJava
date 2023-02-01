@@ -36,7 +36,7 @@ public class RamenUser extends HttpServlet {
 			Ramen ramenUser = (Ramen) s.getAttribute("ramenUser");
 			RamenUserLogic logic = new RamenUserLogic();
 			logic.execute(ramenUser);
-			s.removeAttribute("r");
+			s.removeAttribute("ramenUser");
 
 			forwardPath = "/WEB-INF/jsp/entry.jsp";
 		}
@@ -55,10 +55,10 @@ public class RamenUser extends HttpServlet {
 		String email = request.getParameter("email");
 		String impression = request.getParameter("impression");
 		String favorite = request.getParameter("favorite");
+		String gender = request.getParameter("gender");
 		String age = request.getParameter("age");
 		String zip1 = request.getParameter("zip1");
 		String zip2 = request.getParameter("zip2");
-		String gender = request.getParameter("gender");
 		String[] MyToppings = request.getParameterValues("toppings");
 
 
@@ -67,11 +67,10 @@ public class RamenUser extends HttpServlet {
 		ramenUser.setEmail(email);
 		ramenUser.setImpression(impression);
 		ramenUser.setFavorite(favorite);
-		ramenUser.setAge(age);
+		ramenUser.setGender(gender);
+		ramenUser.setAge(Integer.parseInt(age));
 		ramenUser.setZip1(Integer.parseInt(zip1));
 		ramenUser.setZip2(Integer.parseInt(zip2));
-		ramenUser.setZip1(Integer.parseInt(gender));
-
 
 		String topping = "";
 		if(MyToppings != null) {
