@@ -78,10 +78,6 @@ public class RamenUser extends HttpServlet {
 
 		ramenUser.setToppings(topping);
 
-
-		RamenUserLogic logic = new RamenUserLogic();
-		logic.execute(ramenUser);
-
 		HttpSession s = request.getSession();
 		s.setAttribute("ramenUser", ramenUser);
 
