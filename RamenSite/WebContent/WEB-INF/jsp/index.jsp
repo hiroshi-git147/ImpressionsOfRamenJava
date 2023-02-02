@@ -25,8 +25,9 @@
 				<dt>性別：</dt>
 				<dd>
 					<label>
-						<input type = "radio" name = "gender" value = "0" checked>男性
-						<input type = "radio" name = "gender" value = "1">女性
+						<input type = "radio" name = "gender" value = "男性" checked>男性
+						<input type = "radio" name = "gender" value = "女性">女性7
+						<input type = "radio" name = "gender" value = "その他">その他
 					</label>
 				</dd>
 
