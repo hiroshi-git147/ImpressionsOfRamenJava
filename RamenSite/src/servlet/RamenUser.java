@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Ramen;
-import model.RamenUserLogic;
 
 /**
  * Servlet implementation class RamenServlet
@@ -48,44 +47,25 @@ public class RamenUser extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// リクエストパラメーターを取得
 		request.setCharacterEncoding("UTF-8");
-		String name = request.getParameter("name");
-		String email = request.getParameter("email");
-		String impression = request.getParameter("impression");
-		String favorite = request.getParameter("favorite");
-		String gender = request.getParameter("gender");
-		String age = request.getParameter("age");
-		String zip1 = request.getParameter("zip1");
-		String zip2 = request.getParameter("zip2");
-		String[] MyToppings = request.getParameterValues("toppings");
 
+		Ramen ramen = new Ramen();
+		ramen.setName(request.getParameter("name"));
+		ramen.setEmail(request.getParameter("email"));
+		ramen.setImpression(request.getParameter("impression"));
+		ramen.setFavorite(request.getParameter("favorite"));
+		ramen.setGender(request.getParameter("gender"));
+		ramen.setAge(Integer.parseInt(request.getParameter("age")));
+		ramen.setZip1(Integer.parseInt(request.getParameter("zip1")));
+		ramen.setZip2(Integer.parseInt(request.getParameter("zip2")));
+		ramen.setToppings(request.getParameterValues("toppings"));
 
-		Ramen ramenUser = new Ramen();
-		ramenUser.setName(name);
-		ramenUser.setEmail(email);
-		ramenUser.setImpression(impression);
-		ramenUser.setFavorite(favorite);
-		ramenUser.setGender(gender);
-		ramenUser.setAge(Integer.parseInt(age));
-		ramenUser.setZip1(Integer.parseInt(zip1));
-		ramenUser.setZip2(Integer.parseInt(zip2));
-
-		String topping = "";
-		if(MyToppings != null) {
-			for(int i = 0; i < MyToppings.length; i++) {
-				topping += MyToppings + ", ";
-			}
-		}
-
-		ramenUser.setToppings(topping);
 
 		HttpSession s = request.getSession();
-		s.setAttribute("ramenUser", ramenUser);
+		s.setAttribute("ramen", ramen);
 
 		// フォワード
 		RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/check.jsp");
 		d.forward(request, response);
-
-
 
 	}
 
