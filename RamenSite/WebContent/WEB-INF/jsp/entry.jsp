@@ -1,14 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="model.Ramen" %>
+<% Ramen r = (Ramen) session.getAttribute("ramen"); %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<title>登録完了画面</title>
 </head>
 <body>
-<p>登録完了しました</p>
-	<a href = "/RamenSite/RamenUser">戻る</a>
+
+<article id="survey">
+  <form action="/RamenSite/RamenUser" method="get">
+    <fieldset>
+      <legend>登録完了</legend>
+	  	<p><%= r.getName() %>様の登録完了いたしました。</p>
+    </fieldset>
+    <input type="submit" value="戻る">
+  </form>
+</article>
 
 </body>
 </html>
