@@ -25,8 +25,9 @@
 					</dd>
 					<dt>性別：</dt>
 					<dd>
-						<label> <input type="radio" name="gender" value="男性"
-							checked>男性 <input type="radio" name="gender" value="女性">女性
+						<label> 
+							<input type="radio" name="gender" value="男性"checked>男性 
+							<input type="radio" name="gender" value="女性">女性
 							<input type="radio" name="gender" value="その他">その他
 						</label>
 					</dd>
@@ -35,11 +36,10 @@
 					<dd>
 						<select name="age">
 							<% for (int i = 18; i <= 65; i++) { %>
-								<option value=<%=i%>><%=i%></option>
+							  <option value=<%=i%>><%=i%></option>
 							<% } %>
 						</select>歳
 					</dd>
-
 
 					<dt>郵便番号：</dt>
 					<dd>
@@ -66,7 +66,6 @@
 							%>
 							<option value="<%=ramen%>"><%=ramen%></option>
 							<% } %>
-
 						</select>
 					</dd>
 
@@ -94,8 +93,7 @@
 					</dd>
 				</dl>
 				<p>
-					<input type="submit" value="送信">
-					<input type="reset" value="取消">
+					<input type="submit" value="送信"> <input type="reset"value="取消">
 				</p>
 			</fieldset>
 		</form>
