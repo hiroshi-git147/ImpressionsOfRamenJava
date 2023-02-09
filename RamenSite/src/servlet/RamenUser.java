@@ -30,7 +30,7 @@ public class RamenUser extends HttpServlet {
 
 		if(action == null) {
 			forwardPath = "/WEB-INF/jsp/index.jsp";
-		} else if(action.equals("done")) {
+		} else if(action.equals("確定")) {
 			HttpSession s = request.getSession();
 			s.removeAttribute("ramenUser");
 
@@ -45,9 +45,6 @@ public class RamenUser extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// リクエストパラメーターを取得
-		request.setCharacterEncoding("UTF-8");
-
 		Ramen ramen = new Ramen();
 		ramen.setName(request.getParameter("name"));
 		ramen.setEmail(request.getParameter("email"));
@@ -59,14 +56,12 @@ public class RamenUser extends HttpServlet {
 		ramen.setZip2(Integer.parseInt(request.getParameter("zip2")));
 		ramen.setToppings(request.getParameterValues("toppings"));
 
-
 		HttpSession s = request.getSession();
 		s.setAttribute("ramen", ramen);
 
 		// フォワード
 		RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/check.jsp");
 		d.forward(request, response);
-
 	}
 
 }
