@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="model.Ramen" %>
-<% Ramen r = (Ramen) session.getAttribute("ramen"); %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -12,15 +11,18 @@
 </head>
 <body>
 
-<article id="survey">
-  <form action="/RamenSite/RamenUser" method="get">
-    <fieldset>
-      <legend>登録完了</legend>
-	  	<p><%= r.getName() %>様の登録完了いたしました。</p>
-    </fieldset>
-    <input type="submit" value="戻る">
-  </form>
-</article>
+	<article id="survey">
+		<form action="/RamenSite/RamenUser" method="get">
+			<fieldset>
+				<legend>登録完了</legend>
+				<p>
+					<c:out value="${ramen.name}" />
+					様の登録完了いたしました。
+				</p>
+			</fieldset>
+			<input type="submit" value="戻る">
+		</form>
+	</article>
 
 </body>
 </html>
